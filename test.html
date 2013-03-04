@@ -8,13 +8,17 @@
   </head>
   <body>
     <div id="mocha"></div>
-    <script src="lib/mocha/mocha.js"></script>
 
-    <!-- Include code being tested here -->
+    <!-- Include testing frameworks under here -->
+    <script src="lib/mocha/mocha.js"></script>
+    <script src="lib/chai/chai.js"></script>
+
+    <!-- Include code being tested under here -->
+
 
     <script>mocha.setup('bdd')</script>
 
-    <!-- Include tests here -->
+    <!-- Include tests under here -->
 
     <script>
       mocha.run();
