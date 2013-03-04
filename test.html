@@ -12,6 +12,10 @@
     <!-- Include testing frameworks under here -->
     <script src="lib/mocha/mocha.js"></script>
     <script src="lib/chai/chai.js"></script>
+    <script>
+      // Use chai's should syntax - http://chaijs.com/guide/styles/
+      window.should = chai.should();
+    </script>
 
     <!-- Include code being tested under here -->
 
@@ -19,6 +23,7 @@
     <script>mocha.setup('bdd')</script>
 
     <!-- Include tests under here -->
+    <script src="test/dummyTest.js"></script>
 
     <script>
       mocha.run();
