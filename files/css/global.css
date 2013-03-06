@@ -16,6 +16,32 @@ input {
 	width:						150px;
 }
 
+.boardContainer {
+	display:					none;
+	overflow:					hidden;	
+	background-color:			#555555;
+	border-top:					5px solid #0EBFE9;
+	border-bottom:				5px solid #0EBFE9;
+	height:						0px;
+	width:						0;
+	margin:						0 auto;
+	padding:					0;
+	color:						#CCCCCC;
+}
+
+.gameTile {
+	padding:					0;
+	margin:						0;
+	float:						left;
+}
+
+.gameStats {
+	display:					none;
+	color:						#FFFFFF;
+	padding:					5px;
+	text-align:					center;
+}
+
 .textBox {
 	border:						1px solid #000000;
 }
@@ -29,6 +55,7 @@ input {
 	text-align:					center;
 	font-weight:				bold;
 	margin:						0 auto;
+	padding:					0;
 	color:						#CCCCCC;
 }
 
