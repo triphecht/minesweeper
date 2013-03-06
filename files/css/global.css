@@ -67,6 +67,18 @@ input {
 	width:						130px;
 }
 
+.gameTile {
+	height:						20px;
+	width:						20px;
+	margin:						0;
+	padding:					0;
+	background-image:			url("../images/tile.png");
+}
+
+.gameTile:hover {
+	background-image:			url("../images/tile-hover.png");	
+}
+
 .button {
 	background-color:			#0EBFE9;
 	background-image:			-webkit-linear-gradient(top, #0EBFE9, #0044CC);

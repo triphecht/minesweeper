@@ -56,6 +56,7 @@ $(document).ready(function() {
 			}, 1000);
 		}, 1000);
 		
+		// Draw the mines
 		game.drawBoard('.boardContainer');
 	});
 });

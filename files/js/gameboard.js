@@ -72,7 +72,7 @@ function GameBoard() {
 	this.drawBoard = function(boardContainer) {
 		for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
 			for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
-				$(boardContainer).prepend('<img class="gameTile" src="files/images/tile.png">');	//temporary
+				$(boardContainer).prepend('<div class="gameTile">');	//temporary
 			};
 		};
 	};
