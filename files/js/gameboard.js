@@ -68,11 +68,21 @@ function GameBoard() {
 		return boardMines;
 	};
 	
-	// Draws the gameboard
+	// Populates the game board with mines
+	this.populate = function() {
+		var mines = boardMines;
+		
+		for (var xIndex  = 0; xIndex < boardWidth; xIndex++) {
+			for (var yIndex = 0; yIndex < boardHeight; yIndex++) {
+			};
+		};
+	};
+	
+	// Draws the game board
 	this.drawBoard = function(boardContainer) {
 		for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
 			for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
-				$(boardContainer).prepend('<div class="gameTile">');	//temporary
+				$(boardContainer).append('<div class="gameTile" id="cell-' + xIndex + '-' + yIndex + '">');	//temporary
 			};
 		};
 	};

@@ -72,11 +72,11 @@ input {
 	width:						20px;
 	margin:						0;
 	padding:					0;
-	background-image:			url("../images/tile.png");
+	background-image:			url("../images/tile-hidden.png");
 }
 
 .gameTile:hover {
-	background-image:			url("../images/tile-hover.png");	
+	background-image:			url("../images/tile-hover.png");
 }
 
 .button {

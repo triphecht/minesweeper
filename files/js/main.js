@@ -13,6 +13,7 @@ var MAX_GAMEBOARD_HEIGHT			= 30;
 $(document).ready(function() {
 
 	var game = new GameBoard();
+	var gameTurns = 0;
 
 	// Open Options menu
 	var optionsHeight = $('.options').height();
