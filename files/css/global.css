@@ -1,0 +1,31 @@
+body {
+	background-color:			#CCCCCC;
+	background-image:			url("../images/background.png");
+	font-family:				"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color:						#FFFFFF;
+}
+
+h1 {
+	text-align:					center;
+	letter-spacing:				.5em;
+}
+
+input {
+	display:					block;
+	margin:						0 auto 0 auto;
+	width:						150px;
+}
+
+.textBox {
+	border:						1px solid #000000;
+}
+
+.options {
+	background-color:			#FFFFFF;
+	width:						250px;
+	border-radius:				10px;
+	border:						2px solid #000000;
+	text-align:					center;
+	padding:					20px;
+	margin:						0 auto;
+}
