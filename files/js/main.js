@@ -26,9 +26,9 @@ $(document).ready(function() {
 		$('.options').animate({'height': '0'}, 500).fadeOut(100);
 
 		// Initialize game using form options
-		var width		= parseInt($('#optionsBoardWidth').val());
-		var height		= parseInt($('#optionsBoardHeight').val());
-		var mines		= parseInt($('#optionsBoardMines').val());
+		var width		= parseInt($('#optionsBoardWidth').val(), 10);
+		var height		= parseInt($('#optionsBoardHeight').val(), 10);
+		var mines		= parseInt($('#optionsBoardMines').val(), 10);
 		
 		game.setWidth(width);
 		game.setHeight(height);
