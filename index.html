@@ -3,19 +3,25 @@
 		<title>Minesweeper</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link type="text/css" rel="stylesheet" href="./files/css/global.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
 	</head>
   
 	<body>
-		<h1>Minesweeper</h1>
+		<h1>minesweeper</h1>
+		
 		<div class="wrapper">
 			<div class="options">
-				<form>
-					<input name="boardWidth" class="textbox" placeholder=" board width"><br />
-					<input name="boardHeight" class="textbox" placeholder=" board height"><br />
-					<input name="boardMines" class="textbox" placeholder=" number of mines"><br />
-					<input class="button" type="submit" value="OK">
-				</form>
+				<form name="gameOptions">
+					<p>Options</p>
+					<input id="optionsBoardWidth" name="boardWidth" class="textbox" placeholder=" board width (10)"><br />
+					<input id="optionsBoardHeight" name="boardHeight" class="textbox" placeholder=" board height (10)"><br />
+					<input id="optionsBoardMines" name="boardMines" class="textbox" placeholder=" mines (10)"><br />
+					<a id="submitOptions" class="button">Start</a>
+				</form> <!-- gameOptions -->
 			</div> <!-- options -->
 		</div> <!-- wrapper -->
+		
+		<script type="text/javascript" src="./files/js/gameboard.js"></script>
+		<script type="text/javascript" src="./files/js/main.js"></script>
 	</body>
 </html>
