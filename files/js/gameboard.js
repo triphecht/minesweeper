@@ -6,7 +6,7 @@ function GameBoard() {
 	// Declare variables
 	var boardHeight		= 0;
 	var boardWidth		= 0;
-	var boardMines		= 0;
+	var boardMines		= 0;	
 	var boardCell		= [];
 	
 	// Sets the height of the game board in cells
@@ -21,6 +21,8 @@ function GameBoard() {
 		else {
 			boardHeight = DEFAULT_GAMEBOARD_HEIGHT;			
 		}
+		
+		
 	};
 
 	// Sets the width of the game board in cells
@@ -45,7 +47,7 @@ function GameBoard() {
 		// Ensures that the number of mines is within the declared minimum and maximum, and is a valid type -- otherwise it is set to default values
 		if(isNaN(mines) == false) {
 			mines = Math.max(mines, MIN_GAMEBOARD_MINES);
-			mines = Math.min(mines, MAX_GAMEBOARD_MINES);
+			mines = Math.min(mines, maxMines);
 			boardMines = mines;
 		}
 		else {
@@ -72,17 +74,71 @@ function GameBoard() {
 	this.populate = function() {
 		var mines = boardMines;
 		
-		for (var xIndex  = 0; xIndex < boardWidth; xIndex++) {
-			for (var yIndex = 0; yIndex < boardHeight; yIndex++) {
+		for(var yIndex = 0; yIndex < boardHeight; yIndex++) {			
+			for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
+				if(mines > 0) {
+					mines--;
+					boardCell[yIndex][xIndex].addMine();
+				}
 			};
 		};
 	};
 	
+	// Shuffles the board
+	this.shuffle = function(iterations) {
+		var tempCell;
+		var tempX;
+		var tempY;
+		
+		for(var shuffles = 0; shuffles < iterations; shuffles++) {		
+			for(var yIndex = 0; yIndex < boardHeight; yIndex++) {			
+				for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
+					
+					tempX							= Math.floor(Math.random() * boardWidth);
+					tempY							= Math.floor(Math.random() * boardHeight);
+					
+					tempCell						= boardCell[yIndex][xIndex];
+					tempCell.setID(boardCell[yIndex][xIndex].getID());
+					
+					boardCell[yIndex][xIndex]		= boardCell[tempY][tempX];
+					boardCell[yIndex][xIndex].setID(boardCell[tempY][tempX].getID());
+					
+					boardCell[tempY][tempX]			= tempCell;
+					boardCell[tempY][tempX].setID(tempCell.getID());					
+					
+				};
+			};
+		};
+	};
+	
+	// Initializes the board 
+	this.initBoard = function(boardContainer) {
+		for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
+			
+			boardCell[yIndex] = [];
+			for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
+			
+				boardCell[yIndex][xIndex] = new GameCell();	
+				boardCell[yIndex][xIndex].setID('cell-' + xIndex + '-' + yIndex);
+				
+				$(boardContainer).append('<div class="gameTile" id="' + boardCell[yIndex][xIndex].getID() + '">');
+			};
+		};
+	};
+
 	// Draws the game board
 	this.drawBoard = function(boardContainer) {
-		for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
-			for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
-				$(boardContainer).append('<div class="gameTile" id="cell-' + xIndex + '-' + yIndex + '">');	//temporary
+		for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
+			
+			for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
+			
+				if(boardCell[yIndex][xIndex].isMined() == true) {
+					$('#' + boardCell[yIndex][xIndex].getID()).css('background-image', 'url("files/images/tile-mine.png")');
+				}
+				else {
+					$('#' + boardCell[yIndex][xIndex].getID()).css('background-image', 'url("files/images/tile-hidden.png")');
+					$('#' + boardCell[yIndex][xIndex].getID()).css('background-color', '#0000FF');
+				}
 			};
 		};
 	};

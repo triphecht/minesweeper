@@ -58,7 +58,13 @@ $(document).ready(function() {
 		}, 1000);
 		
 		// Draw the mines
+		game.initBoard('.boardContainer');
+		game.populate();
+		game.shuffle(1);
 		game.drawBoard('.boardContainer');
+
+		
+		//
 	});
 });
 
