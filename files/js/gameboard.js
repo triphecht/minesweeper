@@ -84,8 +84,8 @@ function GameBoard() {
 		};
 	};
 	
-	// Shuffles the board
-	this.shuffle = function(iterations) {
+	// Shuffles mines around the board
+	this.shuffleMines = function(iterations) {
 		var tempCell;
 		var tempX;
 		var tempY;
@@ -97,15 +97,17 @@ function GameBoard() {
 					tempX							= Math.floor(Math.random() * boardWidth);
 					tempY							= Math.floor(Math.random() * boardHeight);
 					
-					tempCell						= boardCell[yIndex][xIndex];
-					tempCell.setID(boardCell[yIndex][xIndex].getID());
-					
-					boardCell[yIndex][xIndex]		= boardCell[tempY][tempX];
-					boardCell[yIndex][xIndex].setID(boardCell[tempY][tempX].getID());
-					
-					boardCell[tempY][tempX]			= tempCell;
-					boardCell[tempY][tempX].setID(tempCell.getID());					
-					
+					var random = boardCell[tempY][tempX];
+					var current = boardCell[yIndex][xIndex];
+
+					// Hold current's mine flag for later
+					var tempMine = current.isMined();
+
+					// Give current the value of random's mine flag
+					random.isMined() ? current.addMine() : current.removeMine();
+
+					// Give random the old value of current's mine flag
+					tempMine ? random.addMine() : random.removeMine();
 				};
 			};
 		};
