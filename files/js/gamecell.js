@@ -48,8 +48,9 @@ function GameCell() {
 	
 	// When the cell gets clicked...
 	this.clicked = function() {
-		
-	}
+		//alert(cellID + ' has been clicked');
+		alert('inside the clicked function of ' + cellID);
+	};
 }
 
 

@@ -94,8 +94,8 @@ function GameBoard() {
 			for(var yIndex = 0; yIndex < boardHeight; yIndex++) {			
 				for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
 					
-					tempX							= Math.floor(Math.random() * boardWidth);
-					tempY							= Math.floor(Math.random() * boardHeight);
+					tempX	= Math.floor(Math.random() * boardWidth);
+					tempY	= Math.floor(Math.random() * boardHeight);
 					
 					var random = boardCell[tempY][tempX];
 					var current = boardCell[yIndex][xIndex];
@@ -143,6 +143,20 @@ function GameBoard() {
 				}
 			};
 		};
+	};
+	
+	// Detect clicks on game board
+	this.getInput = function() {
+		var $elements = "";
+	
+		for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
+			for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
+				$($elements).add('#' + boardCell[yIndex][xIndex].getID()).click(function() {
+					alert('f');
+					//wtffffffffff
+				});
+			};
+		};		
 	};
 }
 

@@ -62,7 +62,7 @@ $(document).ready(function() {
 		game.populate();
 		game.shuffleMines(1);
 		game.drawBoard('.boardContainer');
-
+		game.getInput();
 		
 		//
 	});
