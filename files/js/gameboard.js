@@ -151,9 +151,9 @@ function GameBoard() {
 	
 		for(var yIndex = 0; yIndex < boardHeight; yIndex++) {
 			for(var xIndex = 0; xIndex < boardWidth; xIndex++) {
-				$($elements).add('#' + boardCell[yIndex][xIndex].getID()).click(function() {
-					alert('f');
-					//wtffffffffff
+				alert('#' + boardCell[yIndex][xIndex].getID());
+				$('#' + boardCell[yIndex][xIndex].getID()).on('click', function() {
+					boardCell[yIndex][xIndex].clicked();
 				});
 			};
 		};		
